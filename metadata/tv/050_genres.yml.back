@@ -1,0 +1,63 @@
+templates:
+  genre_dynamic:
+    minimum_items: 4
+    sort_title: "!050_<<collection_name>>"
+    visible_library: false
+    default:
+      sort_by: release.desc
+    url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/genre/<<key_name_encoded>>.jpg
+    smart_filter:
+      sort_by: <<sort_by>>
+      any:
+        genre: <<value>>
+
+dynamic_collections:
+  Genre:
+    type: genre
+    title_format: <<key_name>>
+    template:
+      - genre_dynamic
+    title_override:
+      Biography: Biopic
+    exclude:
+      - Talk Show
+      - Mini-Series
+    addons:
+      Action:
+        - Action/Adventure
+        - Action/adventure
+        - Action & Adventure
+        - Action & adventure
+        - Action and Adventure
+        - Action and adventure
+      Adventure:
+        - Action/Adventure
+        - Action/adventure
+        - Action & Adventure
+        - Action & adventure
+        - Action and Adventure
+        - Action and adventure
+      Biography:
+        - Biopic
+      Family:
+        - Kids & Family
+      Fantasy:
+        - SciFi & Fantasy
+        - Science Fiction & Fantasy
+        - Science-Fiction & Fantasy
+        - Sci-Fi & Fantasy
+      Film Noir:
+        Film-Noir
+      Politics:
+        - War & Politics
+      Science Fiction:
+        - SciFi
+        - Sci-Fi
+        - Science-Fiction
+        - SciFi & Fantasy
+        - Science Fiction & Fantasy
+        - Sci-Fi & Fantasy
+      Talk Show:
+        - Talk
+      War:
+        - War & Politics

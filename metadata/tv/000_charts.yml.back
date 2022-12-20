@@ -1,0 +1,31 @@
+######################################################
+#                Chart Collections                   #
+######################################################
+
+collections:
+  Plex Popular Week:
+    name: "Popular On Plex"
+    summary: Silently judge what others are watching... then watch it yourself.
+    sort_title: "!011_Popular"
+    name_mapping: Plex Popular Week
+    sync_mode: sync
+    collection_order: alpha
+    tautulli_watched:
+      list_days: 7
+      list_size: 20
+      list_buffer: 20
+    visible_library: true
+    visible_home: true
+    visible_shared: true
+
+  Recently Added:
+    summary: What's new on the server.
+    collection_level: season
+    sort_title: "!012_RecentlyAdded"
+    sync_mode: sync
+    smart_filter:
+      all:
+        episode_added: 7
+      sort_by:
+        - show.asc
+        - season.desc

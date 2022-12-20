@@ -1,0 +1,200 @@
+external_templates:
+  pmm: templates
+  template_variables:
+    collection_section: 999
+
+translations:
+  pmm: translations
+
+templates:
+  Collections:
+    optional:
+      - collection
+      - movie
+      - tmdb
+      - imdb
+      - tmdb_summary
+      - summary
+      - radarr
+    tmdb_collection_details: <<collection>>
+    tmdb_movie: <<movie>>
+    tmdb_summary: <<tmdb_summary>>
+    summary: <<summary>>
+    tmdb_list: <<tmdb>>
+    imdb_list: <<imdb>>
+    sync_mode: sync
+    collection_order: release
+    url_poster: <<poster>>
+    sort_title: <<collection_name>>
+    radarr_add_missing: <<radarr>>
+    #schedule: weekly(saturday)
+
+collections:
+
+  Movie Collections:
+    template:
+      - name: separator
+        separator: personal
+      - name: translation
+        key_name: Personal
+        translation_key: separator
+
+#Middle Earth
+  "The Hobbit":
+    template: {name: Collections, collection: 121938, poster: https://theposterdb.com/api/assets/113985 }
+
+  "The Lord of the Rings":
+    template: {name: Collections, collection: 119, poster: https://theposterdb.com/api/assets/113964 }
+
+  "Middle Earth":
+    template: {name: Collections, tmdb: 8195671, poster: https://theposterdb.com/api/assets/115066 }
+
+#Wizarding World
+  "Fantastic Beasts":
+    template: {name: Collections, collection: 435259, poster: https://theposterdb.com/api/assets/169 }
+
+  "Harry Potter":
+    template: {name: Collections, collection: 1241, poster: https://theposterdb.com/api/assets/545 }
+
+#DC
+  "Aquaman":
+    template: {name: Collections, collection: 573693, poster: https://theposterdb.com/api/assets/162375 }
+
+  "Batman":
+    template: {name: Collections, poster: https://theposterdb.com/api/assets/79435 }
+    tmdb_collection:
+      - 263
+      - 948485
+      - 120794
+
+#  "The Dark Knight":
+#    template: {name: Collections, collection: 263, poster: https://theposterdb.com/api/assets/4790 }
+
+  "Red":
+    template: {name: Collections, collection: 163902, poster: https://theposterdb.com/api/assets/162399 }
+
+  "Suicide Squad":
+    template: {name: Collections, collection: 531242, poster: https://theposterdb.com/api/assets/174225 }
+
+  "Superman":
+    template: {name: Collections, radarr: true, collection: 8537, poster: https://theposterdb.com/api/assets/72726 }
+
+#  "Swamp Thing":
+#    template: {name: Collections, radarr: true, collection: 87228, poster: https://theposterdb.com/api/assets/162403 }
+
+  "Watchmen":
+    template: {name: Collections, tmdb: 8196349, poster: https://theposterdb.com/api/assets/162408 }
+
+  "Wonder Woman":
+    template: {name: Collections, collection: 468552, poster: https://theposterdb.com/api/assets/94683 }
+
+#James Bond
+  "James Bond":
+    template: {name: Collections, collection: 645, tmdb_summary: 645, poster: https://theposterdb.com/api/assets/24922}
+
+#Mission Impossible
+  "Mission: Impossible":
+    template: {name: Collections, collection: "87359", tmdb_summary: 87359, poster: https://theposterdb.com/api/assets/12118}
+
+#MCU
+  "Marvel Cinematic Universe":
+    template: {name: Collections, imdb: https://www.imdb.com/list/ls031310794, poster: https://theposterdb.com/api/assets/879}
+    #imdb_list:
+      #- https://www.imdb.com/list/ls031310794/
+
+#Batman
+  #"Batman Collection":
+    #template: {name: Collections, summary: "Batman is a superhero who appears in American comic books published by DC Comics.", poster: "https://theposterdb.com/api/assets/14850"}
+    #imdb_list:
+      #- https://www.imdb.com/list/ls022342493/
+      #- https://www.imdb.com/list/ls059646235/
+
+#Star Wars
+  "Star Wars":
+    template: {name: Collections, radarr: true, collection: 10, tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
+
+  "Star Wars Despecialized Collection":
+    template: {name: Collections, summary: "Harmy's Despecialized Edition is a fan-created film preservation of the original Star Wars trilogy films: Star Wars (1977), The Empire Strikes Back (1980) and Return of the Jedi (1983)", poster: https://theposterdb.com/api/assets/28780}
+    tmdb_movie:
+      - 11
+      - 1891
+      - 1892
+
+#Studio Ghibli
+  "Studio Ghibli":
+    template: {name: Collections, radarr: true, tmdb: 4309, poster: https://theposterdb.com/api/assets/24655}
+
+#Kung Fu
+  "Kung-Fu Collection":
+    template: {name: Collections, radarr: true, summary: "Classic Wushu Wuxia films showcasing martial artists", poster: https://theposterdb.com/api/assets/70718}
+    imdb_list:
+       - https://www.imdb.com/list/ls075582795/
+       - https://www.imdb.com/list/ls028404218/
+
+#Pirates of the Caribbean
+  "Pirates of the Caribbean":
+    template: {name: Collections, collection: 295, poster: https://theposterdb.com/api/assets/12792}
+
+#Blade Runner Collection
+  "Blade Runner":
+    template: {name: Collections, collection: 422837, poster: https://theposterdb.com/api/assets/28342}
+
+#Shrek Collection
+  "Shrek":
+    template: {name: Collections, collection: 2150, tmdb_summary: 2150, poster: https://theposterdb.com/api/assets/6997}
+
+#Kingsman Collection
+  "Kingsman":
+    template: {name: Collections, collection: 391860, tmdb_summary: 391860, poster: https://theposterdb.com/api/assets/6634}
+
+#Back to the Future Collection
+  "Back to the Future":
+    template: {name: Collections, collection: 264, tmbd_summary: 264, poster: https://theposterdb.com/api/assets/87588}
+
+#Despicable Me
+  "Despicable Me":
+    template: {name: Collections, collection: 86066, tmdb_summary: 86066, poster: https://theposterdb.com/api/assets/138807}
+
+#Indiana Jones
+  "Indiana Jones":
+    template: {name: Collections, collection: 84, tmdb_summary: 84, poster: https://theposterdb.com/api/assets/21883}
+
+#Zombies
+  "Zombie Collection":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls064286046, summary: "Fast or slow, zombies always win in the end", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
+    #imdb_list:
+      #- https://www.imdb.com/list/ls064286046
+    tmdb_movie:
+      - 338967
+
+#Bourne Collection
+  "Bourne Collection":
+    template: {name: Collections, collection: 31562, tmdb_summary: 31562, poster: https://theposterdb.com/api/assets/5420}
+
+#John Wick Collection
+  "John Wick":
+    template: {name: Collections, collection: 404609, tmdb_summary: 404609, poster: https://theposterdb.com/api/assets/17550}
+
+#Jurassic Park
+  "Jurassic Park":
+    template: {name: Collections, collection: 328, tmdb_summary: 328, poster: https://theposterdb.com/api/assets/27563}
+
+#Disney Animation
+  "Disney Animation":
+    template: {name: Collections, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
+
+#Sc-Fi Collection
+  "Greatest Sci-Fi Collection":
+    template: {name: Collections, imdb: https://www.imdb.com/list/ls567680996, poster: https://theposterdb.com/api/assets/51772}
+    #imdb_list:
+      #- https://www.imdb.com/list/ls567680996
+    collection_order: custom
+
+#Alien Franchise
+  "Alien Anthology":
+    template: {name: Collections, collection: "8091, 135416", summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/171305}
+
+#Predator Collection
+  "Predator Collection":
+    template: {name: Collections, radarr: true, collection: 399, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
+

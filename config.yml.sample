@@ -1,0 +1,159 @@
+libraries:
+  Movies:
+    metadata_path:
+      - folder: config/metadata/movies/
+      - pmm: seasonal
+        template_variables:
+          use_mother: false
+          use_memorial: false
+          use_father: false
+          use_labor: false
+          emoji: ""
+          imdb_list_christmas:
+            - https://www.imdb.com/list/ls000096828/ #default pmm list
+            - https://www.imdb.com/list/ls025976544/
+            - https://www.imdb.com/list/ls003863000/
+            - https://www.imdb.com/list/ls027454200/
+            - https://www.imdb.com/list/ls027886673/
+            - https://www.imdb.com/list/ls097998599/
+            - https://www.imdb.com/list/ls000096828/
+          trakt_list_christmas:
+            - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
+            - https://trakt.tv/users/littlestella3/lists/christmas
+            #- https://trakt.tv/users/2borno2b/lists/christmas-movies-extravanganza
+          #ignore_ids: tt0120663
+          #ignore_tmdb_ids: 345
+      - pmm: separator_award
+      - pmm: oscars
+        template_variables:
+          radarr_add_missing: false
+          use_best_director: false
+          use_year_collections: false
+      - pmm: separator_chart
+      - pmm: basic
+      - pmm: decade
+    overlay_path:
+      - remove_overlays: false
+      - reapply_overlays: false
+      #- reset_overlays: plex
+      - pmm: resolution
+        template_variables:
+          use_1080p: false
+          use_720p: false
+          use_576p: false
+          use_480p: false
+          use_directorscut: false
+          use_extended: false
+          use_uncut: false
+          use_unrated: false
+          use_special: false
+          use_finalcut: false
+          use_anniversary: false
+          use_collector: false
+          use_international: false
+          use_theatrical: false
+          use_ultimate: false
+          use_enhanced: true
+          use_imax: true
+          use_remastered: false
+          use_criterion: false
+#      - pmm: ribbon
+#        template_variables:
+#          use_common: false
+#          use_metacritic: false
+#          use_oscars: false
+#          use_rotten: false
+    settings:
+      report_path: config/reports/movies.yml
+      asset_directory:
+      - config/assets
+    operations:
+      delete_collections:
+        configured: false
+        managed: true
+
+  Movies for operations:
+    library_name: Movies
+    schedule: Weekly(monday)
+    operations:
+      mass_originally_available_update: tmdb
+      mass_genre_update: tmdb
+      mass_content_rating_update: mdb_commonsense
+      mass_critic_rating_update: mdb_tomatoes
+      mass_audience_rating_update: imdb
+      mass_user_rating_update: tmdb
+
+  TV:
+    metadata_path:
+      - folder: config/metadata/tv/
+      - pmm: separator_chart
+      - pmm: flixpatrol
+        template_variables:
+          location: united_states
+          sonarr_add_missing: true
+          sonarr_tag: pmm_flixpatrol
+          sonarr_monitor: none
+          sonarr_search: false
+    settings:
+      report_path: config/reports/tv_shows.yml
+      asset_directory:
+      - config/assets
+    operations:
+      delete_collections:
+        configured: false
+        managed: true
+
+  TV for operations:
+    library_name: TV
+    schedule: Weekly(monday)
+    operations:
+      mass_originally_available_update: tvdb
+      mass_genre_update: tvdb
+      mass_content_rating_update: mdb_commonsense
+      mass_critic_rating_update: mdb_tomatoes
+      mass_audience_rating_update: imdb
+      mass_user_rating_update: imdb
+
+playlist_files:
+  - pmm: playlist
+    template_variables:
+      libraries: Movies
+    asset_directory:
+    - config/assets/playlists
+settings: # Can be individually specified per library as well
+  cache: true
+  cache_expiration: 60
+  asset_directory: config/assets
+  asset_folders: true
+  asset_depth: 1
+  create_asset_folders: true
+  prioritize_assets: true
+  dimensional_asset_rename: true
+  download_url_assets: true
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  sync_mode: append
+  minimum_items: 2
+  default_collection_order:
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 2
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: false
+  show_filtered: false
+  show_options: false
+  show_missing: true
+  show_missing_assets: true
+  save_report: false
+  tvdb_language: eng
+  ignore_ids: tt0120663
+  ignore_imdb_ids:
+  item_refresh_delay: 0
+  playlist_sync_to_user: all
+  playlist_report: false
+  verify_ssl: true
+  custom_repo:
+  check_nightly: false
+  show_unconfigured: true
