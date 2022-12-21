@@ -165,7 +165,7 @@ collections:
 
 #Sci-Fi Collection
   "Greatest Sci-Fi Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rt-150-best-sci-fi-movies, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes 150 greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-150-greatest-sci-fi-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes 150 greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
 
 #Alien Franchise
   "Alien Anthology":
@@ -177,4 +177,4 @@ collections:
 
 #Godzilla Collection
   "Godzilla":
-    template: {name: Collections, radarr: true, collection: "535313, 535790", poster: https://theposterdb.com/api/assets/202765, summary: "A collection featuring Godzilla and the Monsterverse kaiju."}
+    template: {name: Collections, radarr: true, collection: "535313, 535790", poster: https://theposterdb.com/api/assets/202765, summary: "A collection featuring Godzilla and the kaiju from the Monsterverse."}
