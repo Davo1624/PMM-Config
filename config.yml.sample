@@ -1,62 +1,73 @@
 libraries:
   Movies:
     metadata_path:
-      - folder: config/metadata/movies/
-      - pmm: seasonal
-        template_variables:
-          use_mother: false
-          use_memorial: false
-          use_father: false
-          use_labor: false
-          emoji: ""
-          imdb_list_christmas:
-            - https://www.imdb.com/list/ls000096828/ #default pmm list
-            - https://www.imdb.com/list/ls025976544/
-            - https://www.imdb.com/list/ls003863000/
-            - https://www.imdb.com/list/ls027454200/
-            - https://www.imdb.com/list/ls027886673/
-            - https://www.imdb.com/list/ls097998599/
-            - https://www.imdb.com/list/ls000096828/
-          trakt_list_christmas:
-            - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
-            - https://trakt.tv/users/littlestella3/lists/christmas
-            #- https://trakt.tv/users/2borno2b/lists/christmas-movies-extravanganza
-          #ignore_ids: tt0120663
-          #ignore_tmdb_ids: 345
-      - pmm: separator_award
-      - pmm: oscars
-        template_variables:
-          radarr_add_missing: false
-          use_best_director: false
-          use_year_collections: false
-      - pmm: separator_chart
-      - pmm: basic
-      - pmm: decade
+    - folder: config/metadata/movies/
+    - pmm: seasonal
+      template_variables:
+        use_mother: false
+        use_memorial: false
+        use_father: false
+        use_labor: false
+        emoji: ''
+        imdb_list_christmas:
+          - https://www.imdb.com/list/ls000096828/     #default pmm list
+          - https://www.imdb.com/list/ls025976544/
+          - https://www.imdb.com/list/ls003863000/
+          - https://www.imdb.com/list/ls027454200/
+          - https://www.imdb.com/list/ls027886673/
+          - https://www.imdb.com/list/ls097998599/
+          - https://www.imdb.com/list/ls000096828/
+        trakt_list_christmas:
+          - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
+          - https://trakt.tv/users/littlestella3/lists/christmas
+        ignore_ids:
+        ignore_imdb_ids:
+          - tt0120663 #Eyes Wide Shut
+          - tt0093409 #Lethal Weapon
+          - tt0089927 #Rocky IV
+          - tt0448115 #Shazam
+          - tt1300854 #Iron Man 3
+    - pmm: separator_award
+    - pmm: oscars
+      template_variables:
+        radarr_add_missing: false
+        use_best_director: false
+        use_year_collections: false
+    - pmm: separator_chart
+    - pmm: basic
+    - pmm: decade
+    - pmm: flixpatrol
+      template_variables:
+        location: united_states
+        radarr_add_missing: true
+        radarr_tag: pmm_flixpatrol
+        radarr_monitor: true
+        radarr_search: false
     overlay_path:
-      - remove_overlays: false
-      - reapply_overlays: false
+    - remove_overlays: false
+    - reapply_overlays: false
       #- reset_overlays: plex
-      - pmm: resolution
-        template_variables:
-          use_1080p: false
-          use_720p: false
-          use_576p: false
-          use_480p: false
-          use_directorscut: false
-          use_extended: false
-          use_uncut: false
-          use_unrated: false
-          use_special: false
-          use_finalcut: false
-          use_anniversary: false
-          use_collector: false
-          use_international: false
-          use_theatrical: false
-          use_ultimate: false
-          use_enhanced: true
-          use_imax: true
-          use_remastered: false
-          use_criterion: false
+    - pmm: resolution
+      template_variables:
+        use_1080p: false
+        use_720p: false
+        use_576p: false
+        use_480p: false
+        use_directorscut: false
+        use_extended: false
+        use_uncut: false
+        use_unrated: false
+        use_special: false
+        use_finalcut: false
+        use_anniversary: false
+        use_collector: false
+        use_international: false
+        use_theatrical: false
+        use_ultimate: false
+        use_enhanced: true
+        use_imax: true
+        use_remastered: false
+        use_criterion: false
 #      - pmm: ribbon
 #        template_variables:
 #          use_common: false
@@ -85,15 +96,15 @@ libraries:
 
   TV:
     metadata_path:
-      - folder: config/metadata/tv/
-      - pmm: separator_chart
-      - pmm: flixpatrol
-        template_variables:
-          location: united_states
-          sonarr_add_missing: true
-          sonarr_tag: pmm_flixpatrol
-          sonarr_monitor: none
-          sonarr_search: false
+    - folder: config/metadata/tv/
+    - pmm: separator_chart
+    - pmm: flixpatrol
+      template_variables:
+        location: united_states
+        sonarr_add_missing: true
+        sonarr_tag: pmm_<<collection>>
+        sonarr_monitor: none
+        sonarr_search: false
     settings:
       report_path: config/reports/tv_shows.yml
       asset_directory:
@@ -115,11 +126,13 @@ libraries:
       mass_user_rating_update: imdb
 
 playlist_files:
-  - pmm: playlist
-    template_variables:
-      libraries: Movies
-    asset_directory:
-    - config/assets/playlists
+- pmm: playlist
+  sync_to_users: Kid
+  delete_playlist: true
+  template_variables:
+    libraries: Movies
+  asset_directory:
+  - config/assets/playlists
 settings: # Can be individually specified per library as well
   cache: true
   cache_expiration: 60
@@ -148,7 +161,7 @@ settings: # Can be individually specified per library as well
   show_missing_assets: true
   save_report: false
   tvdb_language: eng
-  ignore_ids: tt0120663
+  ignore_ids:
   ignore_imdb_ids:
   item_refresh_delay: 0
   playlist_sync_to_user: all
