@@ -1,5 +1,6 @@
 libraries:
   Movies:
+    report_path: config/reports/movies.yml
     metadata_path:
     - folder: config/metadata/movies/
     - pmm: seasonal
@@ -75,7 +76,6 @@ libraries:
 #          use_oscars: false
 #          use_rotten: false
     settings:
-      report_path: config/reports/movies.yml
       asset_directory:
       - config/assets
     operations:
@@ -95,6 +95,7 @@ libraries:
       mass_user_rating_update: tmdb
 
   TV:
+    report_path: config/reports/tv_shows.yml
     metadata_path:
     - folder: config/metadata/tv/
     - pmm: separator_chart
@@ -106,7 +107,6 @@ libraries:
         sonarr_monitor: none
         sonarr_search: false
     settings:
-      report_path: config/reports/tv_shows.yml
       asset_directory:
       - config/assets
     operations:
@@ -127,8 +127,8 @@ libraries:
 
 playlist_files:
 - pmm: playlist
-  sync_to_users: Kid
-  delete_playlist: true
+  sync_to_user: all
+  exclude_users: Kid
   template_variables:
     libraries: Movies
   asset_directory:
