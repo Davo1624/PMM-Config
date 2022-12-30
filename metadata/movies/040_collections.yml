@@ -164,8 +164,8 @@ collections:
     template: {name: Collections, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
 
 #Sci-Fi Collection
-  "Greatest Sci-Fi Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-150-greatest-sci-fi-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes 150 greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+  "Sci-Fi Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/13798, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
 
 #Alien Franchise
   "Alien Anthology":
@@ -178,3 +178,15 @@ collections:
 #Godzilla Collection
   "Godzilla":
     template: {name: Collections, radarr: true, collection: "535313, 535790", poster: https://theposterdb.com/api/assets/202765, summary: "A collection featuring Godzilla and the kaiju from the Monsterverse."}
+
+#Fantasy Collection
+  "Fantasy Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/hdlists/best-fantasy-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the greatest movies in the fantasy genre.", poster: https://theposterdb.com/api/assets/51476}
+
+#Kids Collection
+  "Kids Collection":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls057839433/,  summary: "Collection of the top 100 kids movies.", poster: https://theposterdb.com/api/assets/102656}
+
+#Action Collection
+  "Action Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/13797, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}

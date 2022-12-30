@@ -13,9 +13,9 @@ templates:
       summary_popular: Trakt most watched <<library_type>>s of the week
     summary: <<summary_<<key>>>>
     #file_poster: config/assets/<<collection_name>>/poster.jpg
-    radarr_add_missing: true
-    radarr_monitor: false
-    radarr_tag: pmm_mdblist
+    sonarr_add_missing: true
+    sonarr_monitor: none
+    sonarr_tag: pmm_mdblist
 
 collections:
   Popular:

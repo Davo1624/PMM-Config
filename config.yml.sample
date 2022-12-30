@@ -11,23 +11,23 @@ libraries:
         use_labor: false
         emoji: ''
         imdb_list_christmas:
-          - https://www.imdb.com/list/ls000096828/     #default pmm list
-          - https://www.imdb.com/list/ls025976544/
-          - https://www.imdb.com/list/ls003863000/
-          - https://www.imdb.com/list/ls027454200/
-          - https://www.imdb.com/list/ls027886673/
-          - https://www.imdb.com/list/ls097998599/
-          - https://www.imdb.com/list/ls000096828/
+        - https://www.imdb.com/list/ls000096828/       #default pmm list
+        - https://www.imdb.com/list/ls025976544/
+        - https://www.imdb.com/list/ls003863000/
+        - https://www.imdb.com/list/ls027454200/
+        - https://www.imdb.com/list/ls027886673/
+        - https://www.imdb.com/list/ls097998599/
+        - https://www.imdb.com/list/ls000096828/
         trakt_list_christmas:
-          - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
-          - https://trakt.tv/users/littlestella3/lists/christmas
+        - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
+        - https://trakt.tv/users/littlestella3/lists/christmas
         ignore_ids:
         ignore_imdb_ids:
-          - tt0120663 #Eyes Wide Shut
-          - tt0093409 #Lethal Weapon
-          - tt0089927 #Rocky IV
-          - tt0448115 #Shazam
-          - tt1300854 #Iron Man 3
+        - tt0120663   #Eyes Wide Shut
+        - tt0093409   #Lethal Weapon
+        - tt0089927   #Rocky IV
+        - tt0448115   #Shazam
+        - tt1300854   #Iron Man 3
     - pmm: separator_award
     - pmm: oscars
       template_variables:
@@ -37,12 +37,14 @@ libraries:
     - pmm: separator_chart
     - pmm: basic
     - pmm: decade
+      template_variables:
+        exclude: 1920
     - pmm: flixpatrol
       template_variables:
         location: united_states
         radarr_add_missing: true
         radarr_tag: pmm_flixpatrol
-        radarr_monitor: true
+        radarr_monitor: false
         radarr_search: false
     overlay_path:
     - remove_overlays: false
@@ -81,7 +83,7 @@ libraries:
     operations:
       delete_collections:
         configured: false
-        managed: true
+        managed: false
 
   Movies for operations:
     library_name: Movies
@@ -99,11 +101,12 @@ libraries:
     metadata_path:
     - folder: config/metadata/tv/
     - pmm: separator_chart
+    - pmm: basic
     - pmm: flixpatrol
       template_variables:
         location: united_states
         sonarr_add_missing: true
-        sonarr_tag: pmm_<<collection>>
+        sonarr_tag: pmm_flixpatrol
         sonarr_monitor: none
         sonarr_search: false
     settings:
@@ -112,7 +115,7 @@ libraries:
     operations:
       delete_collections:
         configured: false
-        managed: true
+        managed: false
 
   TV for operations:
     library_name: TV
@@ -127,9 +130,9 @@ libraries:
 
 playlist_files:
 - pmm: playlist
-  sync_to_user: all
-  exclude_users: Kid
   template_variables:
+    sync_to_user: all
+    exclude_users: Kid
     libraries: Movies
   asset_directory:
   - config/assets/playlists
@@ -170,3 +173,91 @@ settings: # Can be individually specified per library as well
   custom_repo:
   check_nightly: false
   show_unconfigured: true
+  playlist_exclude_users:
+webhooks: (redacted)
+  error: (redacted)
+  version: (redacted)
+  run_start: (redacted)
+  run_end: (redacted)
+  changes: (redacted)
+  delete:
+plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
+  url: (redacted)
+  token: (redacted)
+  timeout: 60
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+tmdb:                                           # REQUIRED for the script to run
+  apikey: (redacted)
+  language: en
+  cache_expiration: 60
+  region:
+tautulli:                                       # Can be individually specified per library as well
+  url: (redacted)
+  apikey: (redacted)
+omdb:
+  apikey: (redacted)
+  cache_expiration: 60
+mdblist:
+  apikey: (redacted)
+  cache_expiration: 60
+notifiarr:
+  apikey: (redacted)
+anidb:                                          # Not required for AniDB builders unless you want mature content
+  username: (redacted)
+  password: (redacted)
+  language: en
+  client:
+radarr:                                           # Can be individually specified per library as well
+  url: (redacted)
+  token: (redacted)
+  root_folder_path: /data/media/movies
+  monitor: false
+  availability: released
+  quality_profile: Remux|Bluray|WebDL-1080p
+  tag: pmm
+  search: false
+  radarr_path:
+  plex_path:
+  add_existing: false
+  add_missing: false
+  upgrade_existing: false
+sonarr:                                           # Can be individually specified per library as well
+  url: (redacted)
+  token: (redacted)
+  root_folder_path: /data/media/tv
+  monitor: all
+  quality_profile: WebDL|Bluray-1080p
+  language_profile: English
+  series_type: standard
+  season_folder: true
+  tag: pmm
+  search: false
+  cutoff_search: false
+  add_existing: false
+  sonarr_path:
+  plex_path:
+  add_missing: false
+  upgrade_existing: false
+trakt:
+  client_id: (redacted)
+  client_secret: (redacted)
+  pin:
+  authorization:
+    # everything below is autofilled by the script
+    access_token: (redacted)
+    token_type: Bearer
+    expires_in: 7889238
+    refresh_token: (redacted)
+    scope: public
+    created_at: 1671563912
+mal:
+  client_id: (redacted)
+  client_secret: (redacted)
+  authorization:
+    # everything below is autofilled by the script
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:
