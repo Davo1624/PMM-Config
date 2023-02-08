@@ -193,7 +193,7 @@ collections:
 
 #Action Collection
   "Essential Action Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/13797, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-action-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
@@ -206,3 +206,6 @@ collections:
 #Horror Collection
   "Essential Horror Collection":
     template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-200-best-horror-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best horror movies of all time.", poster: https://theposterdb.com/api/assets/246835}
+    filters:
+      title.not:
+        - "Drácula"
