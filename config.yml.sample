@@ -31,14 +31,16 @@ libraries:
     - pmm: separator_award
     - pmm: oscars
       template_variables:
-        radarr_add_missing: false
+        radarr_add_missing: true
         use_best_director: false
         use_year_collections: false
+        collection_order: release
+        item_radarr_tag: pmm_<<collection_name>>
     - pmm: separator_chart
     - pmm: basic
     - pmm: decade
-      template_variables:
-        exclude: 1920
+#      template_variables:
+#        exclude: 1920
     - pmm: flixpatrol
       template_variables:
         location: united_states
@@ -174,65 +176,66 @@ settings: # Can be individually specified per library as well
   check_nightly: false
   show_unconfigured: true
   playlist_exclude_users:
-webhooks: (redacted)
-  error: (redacted)
-  version: (redacted)
-  run_start: (redacted)
-  run_end: (redacted)
-  changes: (redacted)
+webhooks:                                       # Can be individually specified per library as well
+  error: notifiarr
+  version: notifiarr
+  run_start: notifiarr
+  run_end: notifiarr
+  changes: notifiarr
   delete:
 plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
-  url: (redacted)
-  token: (redacted)
+  url: http://plex:32400
+  token: (removed)
   timeout: 60
   clean_bundles: false
   empty_trash: false
   optimize: false
 tmdb:                                           # REQUIRED for the script to run
-  apikey: (redacted)
+  apikey: (removed)
   language: en
   cache_expiration: 60
   region:
 tautulli:                                       # Can be individually specified per library as well
-  url: (redacted)
-  apikey: (redacted)
+  url: http://tautulli:8181
+  apikey: (removed)
 omdb:
-  apikey: (redacted)
+  apikey: ########
   cache_expiration: 60
 mdblist:
-  apikey: (redacted)
+  apikey: (removed)
   cache_expiration: 60
 notifiarr:
-  apikey: (redacted)
+  apikey: (removed)
 anidb:                                          # Not required for AniDB builders unless you want mature content
-  username: (redacted)
-  password: (redacted)
+  username: ######
+  password: ######
   language: en
   client:
 radarr:                                           # Can be individually specified per library as well
-  url: (redacted)
-  token: (redacted)
+  url: http://radarr:7878
+  token: (removed)
   root_folder_path: /data/media/movies
   monitor: false
   availability: released
   quality_profile: Remux|Bluray|WebDL-1080p
-  tag: pmm
+  tag:
   search: false
   radarr_path:
   plex_path:
   add_existing: false
   add_missing: false
   upgrade_existing: false
+  ignore_cache: false
 sonarr:                                           # Can be individually specified per library as well
-  url: (redacted)
-  token: (redacted)
+  url: http://sonarr:8989
+  token: (removed)
   root_folder_path: /data/media/tv
-  monitor: all
+  monitor: none
   quality_profile: WebDL|Bluray-1080p
   language_profile: English
   series_type: standard
   season_folder: true
-  tag: pmm
+  tag:
   search: false
   cutoff_search: false
   add_existing: false
@@ -240,21 +243,22 @@ sonarr:                                           # Can be individually specifie
   plex_path:
   add_missing: false
   upgrade_existing: false
+  ignore_cache: false
 trakt:
-  client_id: (redacted)
-  client_secret: (redacted)
+  client_id: (removed)
+  client_secret: (removed)
   pin:
   authorization:
     # everything below is autofilled by the script
-    access_token: (redacted)
+    access_token: (removed)
     token_type: Bearer
     expires_in: 7889238
-    refresh_token: (redacted)
+    refresh_token: (removed)
     scope: public
-    created_at: 1671563912
+    created_at: 1674344043
 mal:
-  client_id: (redacted)
-  client_secret: (redacted)
+  client_id: ################################
+  client_secret: ################################################################
   authorization:
     # everything below is autofilled by the script
     access_token:
