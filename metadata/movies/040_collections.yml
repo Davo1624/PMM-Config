@@ -209,3 +209,7 @@ collections:
     filters:
       title.not:
         - "Drácula"
+
+#Star Trek Collection
+  "Star Trek Collection":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls056782571/,  summary: "To boldly go where no man has gone before.", poster: https://theposterdb.com/api/assets/138524}
