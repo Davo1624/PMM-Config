@@ -31,7 +31,7 @@ libraries:
     - pmm: separator_award
     - pmm: oscars
       template_variables:
-        radarr_add_missing: true
+        radarr_add_missing: false
         use_best_director: false
         use_year_collections: false
         collection_order: release
@@ -58,7 +58,7 @@ libraries:
         use_720p: false
         use_576p: false
         use_480p: false
-        use_directorscut: false
+        use_directors: false
         use_extended: false
         use_uncut: false
         use_unrated: false
