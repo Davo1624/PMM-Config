@@ -1,5 +1,7 @@
 external_templates:
   pmm: templates
+  template_variables:
+    collection_section: 999
 
 templates:
   Collections:
@@ -24,8 +26,6 @@ templates:
     url_poster: <<poster>>
     sort_title: <<collection_name>>
     sonarr_add_missing: <<sonarr>>
-  template_variables:
-    collection_section: 999
 
 collections:
 

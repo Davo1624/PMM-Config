@@ -1,5 +1,7 @@
 external_templates:
   pmm: templates
+  template_variables:
+    collection_section: 999
 
 templates:
   Collections:
@@ -26,8 +28,6 @@ templates:
     sort_title: <<collection_name>>
     radarr_add_missing: <<radarr>>
     item_radarr_tag: pmm_<<collection_name>>
-  template_variables:
-    collection_section: 999
 
 collections:
 
