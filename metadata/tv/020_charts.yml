@@ -1,21 +1,17 @@
 external_templates:
   pmm: templates
-  template_variables:
-    collection_section: "01"
-    image: "chart/Trakt Popular"
-
-translations:
-  pmm: translations
 
 templates:
   popular:
     default:
       summary_popular: Trakt most watched <<library_type>>s of the week
     summary: <<summary_<<key>>>>
-    #file_poster: config/assets/<<collection_name>>/poster.jpg
+    file_poster: config/assets/<<collection_name>>/poster.jpg
     sonarr_add_missing: true
     sonarr_monitor: none
     sonarr_tag: pmm_mdblist
+  template_variables:
+    collection_section: "01"
 
 collections:
   Popular:

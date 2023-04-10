@@ -1,10 +1,5 @@
 external_templates:
   pmm: templates
-  template_variables:
-    collection_section: 999
-
-translations:
-  pmm: translations
 
 templates:
   Collections:
@@ -29,8 +24,8 @@ templates:
     url_poster: <<poster>>
     sort_title: <<collection_name>>
     sonarr_add_missing: <<sonarr>>
-#    item_sonarr_tag: pmm_<<collection_name>>
-#    schedule: weekly(saturday)
+  template_variables:
+    collection_section: 999
 
 collections:
 
@@ -38,7 +33,6 @@ collections:
     template:
       - name: separator
         separator: personal
-      - name: translation
         key_name: Personal
         translation_key: separator
 

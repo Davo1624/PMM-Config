@@ -1,10 +1,5 @@
 external_templates:
   pmm: templates
-  template_variables:
-    collection_section: 999
-
-translations:
-  pmm: translations
 
 templates:
   Collections:
@@ -31,7 +26,8 @@ templates:
     sort_title: <<collection_name>>
     radarr_add_missing: <<radarr>>
     item_radarr_tag: pmm_<<collection_name>>
-    #schedule: weekly(saturday)
+  template_variables:
+    collection_section: 999
 
 collections:
 
@@ -39,7 +35,6 @@ collections:
     template:
       - name: separator
         separator: personal
-      - name: translation
         key_name: Personal
         translation_key: separator
 
@@ -213,3 +208,11 @@ collections:
 #Star Trek Collection
   "Star Trek Collection":
     template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls056782571/,  summary: "To boldly go where no man has gone before.", poster: https://theposterdb.com/api/assets/138524}
+
+#Animated Collection
+  "Essential Animation Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-animated-films-j876kgx0sd, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best animated movies of all time", poster: https://theposterdb.com/api/assets/180231}
+
+#Fast & Furious
+  "Fast & Furious":
+    template: {name: Collections, imdb: https://www.imdb.com/list/ls096794432/, summnary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/110853}

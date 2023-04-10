@@ -1,0 +1,13 @@
+collections:
+  remove_labels:
+    plex_search:
+      any:
+        label:
+          - "christmasChristmas Movies"
+          - "🎅 <<seasonal_name>>"
+          - "🎅 Christmas Movies"
+    item_label.remove:
+      - "christmasChristmas Movies"
+      - "🎅 <<seasonal_name>>"
+      - "🎅 Christmas Movies"
+    build_collection: false
