@@ -58,21 +58,29 @@ libraries:
         use_720p: false
         use_576p: false
         use_480p: false
-        use_directors: false
         use_extended: false
         use_uncut: false
         use_unrated: false
         use_special: false
-        use_finalcut: false
         use_anniversary: false
         use_collector: false
+        use_diamond: false
+        use_platinum: false
+        use_directors: false
+        use_final: false
         use_international: false
         use_theatrical: false
         use_ultimate: false
+        use_alternate: false
+        use_coda: false
         use_enhanced: true
         use_imax: true
         use_remastered: false
         use_criterion: false
+        use_richarddonner: false
+        use_blackchrome: true
+        use_definitive: false
+        use_ulysses: false
 #      - pmm: ribbon
 #        template_variables:
 #          use_common: false
@@ -111,6 +119,39 @@ libraries:
         sonarr_tag: pmm_flixpatrol
         sonarr_monitor: none
         sonarr_search: false
+    overlay_path:
+    - remove_overlays: false
+    - reapply_overlays: false
+      #- reset_overlays: plex
+    - pmm: resolution
+      template_variables:
+        use_1080p: false
+        use_720p: false
+        use_576p: false
+        use_480p: false
+        use_extended: false
+        use_uncut: false
+        use_unrated: false
+        use_special: false
+        use_anniversary: false
+        use_collector: false
+        use_diamond: false
+        use_platinum: false
+        use_directors: false
+        use_final: false
+        use_international: false
+        use_theatrical: false
+        use_ultimate: false
+        use_alternate: false
+        use_coda: false
+        use_enhanced: true
+        use_imax: true
+        use_remastered: false
+        use_criterion: false
+        use_richarddonner: false
+        use_blackchrome: true
+        use_definitive: false
+        use_ulysses: false
     settings:
       asset_directory:
       - config/assets
@@ -255,7 +296,7 @@ trakt:
     expires_in: 7889238
     refresh_token: (removed)
     scope: public
-    created_at: 1674344043
+    created_at: 1682316018
 mal:
   client_id: ################################
   client_secret: ################################################################
@@ -264,3 +305,4 @@ mal:
     access_token:
     token_type:
     expires_in:
+    refresh_token:

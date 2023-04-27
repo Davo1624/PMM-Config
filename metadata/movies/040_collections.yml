@@ -215,4 +215,8 @@ collections:
 
 #Fast & Furious
   "Fast & Furious":
-    template: {name: Collections, imdb: https://www.imdb.com/list/ls096794432/, summnary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/110853}
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls096794432/, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/110853}
+
+#Pokemon
+  "Pokemon":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
