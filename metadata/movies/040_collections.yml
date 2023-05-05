@@ -206,7 +206,7 @@ collections:
         - "Drácula"
 
 #Star Trek Collection
-  "Star Trek Collection":
+  "Star Trek":
     template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls056782571/,  summary: "To boldly go where no man has gone before.", poster: https://theposterdb.com/api/assets/138524}
 
 #Animated Collection
@@ -220,3 +220,7 @@ collections:
 #Pokemon
   "Pokemon":
     template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
+
+#Western
+  "Essential Western Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-100-greatest-western-movies, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best Western movies of all time", poster: https://theposterdb.com/api/assets/51774}
