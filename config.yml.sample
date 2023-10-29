@@ -9,6 +9,11 @@ libraries:
         use_memorial: false
         use_father: false
         use_labor: false
+        use_aapi: false
+        use_disabilities: false
+        use_lgbtq: false
+        use_latinx: false
+        use_women: false
         emoji: ''
         imdb_list_christmas:
         - https://www.imdb.com/list/ls000096828/       #default pmm list
@@ -36,18 +41,18 @@ libraries:
         use_year_collections: false
         collection_order: release
         item_radarr_tag: pmm_<<collection_name>>
-    - pmm: separator_chart
+#    - pmm: separator_chart
     - pmm: basic
     - pmm: decade
 #      template_variables:
 #        exclude: 1920
-    - pmm: flixpatrol
-      template_variables:
-        location: united_states
-        radarr_add_missing: true
-        radarr_tag: pmm_flixpatrol
-        radarr_monitor: false
-        radarr_search: false
+#    - pmm: flixpatrol
+#      template_variables:
+#        location: united_states
+#        radarr_add_missing: true
+#        radarr_tag: pmm_flixpatrol
+#        radarr_monitor: false
+#        radarr_search: false
     overlay_path:
     - remove_overlays: false
     - reapply_overlays: false
@@ -110,15 +115,15 @@ libraries:
     report_path: config/reports/tv_shows.yml
     metadata_path:
     - folder: config/metadata/tv/
-    - pmm: separator_chart
+#    - pmm: separator_chart
     - pmm: basic
-    - pmm: flixpatrol
-      template_variables:
-        location: united_states
-        sonarr_add_missing: true
-        sonarr_tag: pmm_flixpatrol
-        sonarr_monitor: none
-        sonarr_search: false
+#    - pmm: flixpatrol
+#      template_variables:
+#        location: united_states
+#        sonarr_add_missing: true
+#        sonarr_tag: pmm_flixpatrol
+#        sonarr_monitor: none
+#        sonarr_search: false
     overlay_path:
     - remove_overlays: false
     - reapply_overlays: false
@@ -174,9 +179,9 @@ libraries:
 playlist_files:
 - pmm: playlist
   template_variables:
-    sync_to_user: all
+    playlist_sync_to_users: all
     exclude_users: Kid
-    libraries: Movies
+    libraries: Movies, TV
   asset_directory:
   - config/assets/playlists
 settings: # Can be individually specified per library as well
@@ -231,6 +236,7 @@ plex:                                           # Can be individually specified 
   clean_bundles: false
   empty_trash: false
   optimize: false
+  db_cache:
 tmdb:                                           # REQUIRED for the script to run
   apikey: (removed)
   language: en
@@ -293,10 +299,10 @@ trakt:
     # everything below is autofilled by the script
     access_token: (removed)
     token_type: Bearer
-    expires_in: 7889238
+    expires_in: 7889237
     refresh_token: (removed)
     scope: public
-    created_at: 1682316018
+    created_at: 1698213655
 mal:
   client_id: ################################
   client_secret: ################################################################
