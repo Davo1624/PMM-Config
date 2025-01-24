@@ -1,9 +1,9 @@
 libraries:
   Movies:
     report_path: config/reports/movies.yml
-    metadata_path:
+    collection_files:
     - folder: config/metadata/movies/
-    - pmm: seasonal
+    - default: seasonal
       template_variables:
         use_mother: false
         use_memorial: false
@@ -14,18 +14,31 @@ libraries:
         use_lgbtq: false
         use_latinx: false
         use_women: false
+        use_veteran: false
         emoji: ''
-        imdb_list_christmas:
-        - https://www.imdb.com/list/ls000096828/       #default pmm list
-        - https://www.imdb.com/list/ls025976544/
-        - https://www.imdb.com/list/ls003863000/
-        - https://www.imdb.com/list/ls027454200/
-        - https://www.imdb.com/list/ls027886673/
-        - https://www.imdb.com/list/ls097998599/
-        - https://www.imdb.com/list/ls000096828/
+        imdb_search_christmas:
+          list.any:
+          - https://www.imdb.com/list/ls000096828       #default pmm list
+          - https://www.imdb.com/list/ls025976544/
+          - https://www.imdb.com/list/ls003863000/
+          - https://www.imdb.com/list/ls027454200/
+          - https://www.imdb.com/list/ls027886673/
+          - https://www.imdb.com/list/ls097998599/
+          - https://www.imdb.com/list/ls000096828/
         trakt_list_christmas:
         - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
         - https://trakt.tv/users/littlestella3/lists/christmas
+        trakt_list_halloween:
+        - https://trakt.tv/users/hdlists/lists/the-top-100-halloween-movies-of-all-time?display=movie
+        imdb_search_halloween:
+          list.any:
+          - ls075298827
+          - ls000099714
+        tmdb_collection_halloween:
+        - 11716
+        tmdb_movie_halloween:
+        - 917496      #Beetlejuice Beetlejuice
+        - 1216210     #Evil Sublet
         ignore_ids:
         ignore_imdb_ids:
         - tt0120663   #Eyes Wide Shut
@@ -33,31 +46,49 @@ libraries:
         - tt0089927   #Rocky IV
         - tt0448115   #Shazam
         - tt1300854   #Iron Man 3
-    - pmm: separator_award
-    - pmm: oscars
+        sync_mode: sync
+#    - default: separator_award
+    - default: oscars
       template_variables:
         radarr_add_missing: false
         use_best_director: false
         use_year_collections: false
         collection_order: release
         item_radarr_tag: pmm_<<collection_name>>
-#    - pmm: separator_chart
-    - pmm: basic
-    - pmm: decade
-#      template_variables:
-#        exclude: 1920
-#    - pmm: flixpatrol
-#      template_variables:
-#        location: united_states
-#        radarr_add_missing: true
-#        radarr_tag: pmm_flixpatrol
-#        radarr_monitor: false
-#        radarr_search: false
-    overlay_path:
+        collection_section: '020'
+#    - default: separator_chart
+    - default: trakt
+      template_variables:
+        collection_section: '01'
+        radarr_add_missing: true
+        radarr_monitor: false
+        radarr_tag: pmm_trakt_watched
+        use_anticipated: false
+        use_collected: false
+        use_popular: false
+        use_recommended: false
+        use_trending: false
+        limit: 50
+    - default: basic
+    - default: decade
+    - default: franchise
+      template_variables:
+        #collection_section: 999
+        movie_8091: 945961
+        exclude:
+        - 1281633  # Irish folklore trilogy
+        - 34055 # Pokemon Collection
+        - 661031 # Pokémon (Alternate Continuity)
+        - 661025 # Pokémon: Advanced Generation Collection)
+        - 661028 # Pokémon: Best Wishes! Collection)
+        - 661026 # Pokémon: Diamond and Pearl Collection)
+        - 661029 # Pokémon: XY Collection)
+        minimum_items: 3
+    overlay_files:
     - remove_overlays: false
     - reapply_overlays: false
-      #- reset_overlays: plex
-    - pmm: resolution
+    #- reset_overlays: plex
+    - default: resolution
       template_variables:
         use_1080p: false
         use_720p: false
@@ -86,7 +117,7 @@ libraries:
         use_blackchrome: true
         use_definitive: false
         use_ulysses: false
-#      - pmm: ribbon
+#      - default: ribbon
 #        template_variables:
 #          use_common: false
 #          use_metacritic: false
@@ -113,22 +144,35 @@ libraries:
 
   TV:
     report_path: config/reports/tv_shows.yml
-    metadata_path:
+    collection_files:
     - folder: config/metadata/tv/
-#    - pmm: separator_chart
-    - pmm: basic
-#    - pmm: flixpatrol
-#      template_variables:
-#        location: united_states
-#        sonarr_add_missing: true
-#        sonarr_tag: pmm_flixpatrol
-#        sonarr_monitor: none
-#        sonarr_search: false
-    overlay_path:
+#    - default: separator_chart
+    - default: trakt
+      template_variables:
+        collection_section: '01'
+        sonarr_add_missing: true
+        sonarr_monitor: none
+        sonarr_tag: pmm_trakt_watched
+        use_anticipated: false
+        use_collected: false
+        use_popular: false
+        use_recommended: false
+        use_trending: false
+        limit: 50
+    - default: streaming
+      template_variables:
+        discover_sort: first_air_date.desc
+        exclude:
+        - bet
+        - britbox
+        - hayu
+        limit: 50
+    - default: basic
+    overlay_files:
     - remove_overlays: false
     - reapply_overlays: false
       #- reset_overlays: plex
-    - pmm: resolution
+    - default: resolution
       template_variables:
         use_1080p: false
         use_720p: false
@@ -177,7 +221,7 @@ libraries:
       mass_user_rating_update: imdb
 
 playlist_files:
-- pmm: playlist
+- default: playlist
   template_variables:
     playlist_sync_to_users: all
     exclude_users: Kid
@@ -185,6 +229,11 @@ playlist_files:
   asset_directory:
   - config/assets/playlists
 settings: # Can be individually specified per library as well
+  run-order:
+  - operations
+  - metadata
+  - collections
+  - overlays
   cache: true
   cache_expiration: 60
   asset_directory: config/assets
@@ -222,6 +271,14 @@ settings: # Can be individually specified per library as well
   check_nightly: false
   show_unconfigured: true
   playlist_exclude_users:
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
+  overlay_artwork_filetype: jpg
+  overlay_artwork_quality:
+  show_unfiltered: false
 webhooks:                                       # Can be individually specified per library as well
   error: notifiarr
   version: notifiarr
@@ -230,38 +287,39 @@ webhooks:                                       # Can be individually specified 
   changes: notifiarr
   delete:
 plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
-  url: http://plex:32400
-  token: (removed)
+  url: http://192.168.20.6:32400
+  token: redacted
   timeout: 60
   clean_bundles: false
   empty_trash: false
   optimize: false
   db_cache:
+  verify_ssl:
 tmdb:                                           # REQUIRED for the script to run
-  apikey: (removed)
+  apikey: redacted
   language: en
   cache_expiration: 60
   region:
 tautulli:                                       # Can be individually specified per library as well
   url: http://tautulli:8181
-  apikey: (removed)
-omdb:
-  apikey: ########
-  cache_expiration: 60
+  apikey: redacted
+#omdb:
+  #apikey: ########
+  #cache_expiration: 60
 mdblist:
-  apikey: (removed)
+  apikey: redacted
   cache_expiration: 60
 notifiarr:
-  apikey: (removed)
-anidb:                                          # Not required for AniDB builders unless you want mature content
-  username: ######
-  password: ######
-  language: en
-  client:
+  apikey: redacted
+#anidb:                                          # Not required for AniDB builders unless you want mature content
+  #username: ######
+  #password: ######
+  #language: en
+  #client:
 radarr:                                           # Can be individually specified per library as well
   url: http://radarr:7878
-  token: (removed)
-  root_folder_path: /data/media/movies
+  token: redacted
+  root_folder_path: /data/movies/media/1080p
   monitor: false
   availability: released
   quality_profile: Remux|Bluray|WebDL-1080p
@@ -273,10 +331,11 @@ radarr:                                           # Can be individually specifie
   add_missing: false
   upgrade_existing: false
   ignore_cache: false
+  monitor_existing: false
 sonarr:                                           # Can be individually specified per library as well
   url: http://sonarr:8989
-  token: (removed)
-  root_folder_path: /data/media/tv
+  token: redacted
+  root_folder_path: /data/tv/media
   monitor: none
   quality_profile: WebDL|Bluray-1080p
   language_profile: English
@@ -291,24 +350,16 @@ sonarr:                                           # Can be individually specifie
   add_missing: false
   upgrade_existing: false
   ignore_cache: false
+  monitor_existing: false
 trakt:
-  client_id: (removed)
-  client_secret: (removed)
+  client_id: redacted
+  client_secret: redacted
   pin:
   authorization:
     # everything below is autofilled by the script
-    access_token: (removed)
+    access_token: redacted
     token_type: Bearer
     expires_in: 7889237
-    refresh_token: (removed)
+    refresh_token: redacted
     scope: public
-    created_at: 1698213655
-mal:
-  client_id: ################################
-  client_secret: ################################################################
-  authorization:
-    # everything below is autofilled by the script
-    access_token:
-    token_type:
-    expires_in:
-    refresh_token:
+    created_at: 1730026844
