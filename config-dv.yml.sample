@@ -1,0 +1,147 @@
+libraries:
+  Movies:
+    report_path: config/reports/movies.yml
+    collection_files:
+    - folder: config/metadata/movies4k/
+    settings:
+      asset_directory:
+      - config/assets
+settings: # Can be individually specified per library as well
+  cache: true
+  cache_expiration: 60
+  asset_directory: config/assets
+  asset_folders: true
+  asset_depth: 1
+  create_asset_folders: true
+  prioritize_assets: true
+  dimensional_asset_rename: true
+  download_url_assets: true
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  sync_mode: append
+  minimum_items: 2
+  default_collection_order:
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 2
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: false
+  show_filtered: false
+  show_options: false
+  show_missing: true
+  show_missing_assets: true
+  save_report: false
+  tvdb_language: eng
+  ignore_ids:
+  ignore_imdb_ids:
+  item_refresh_delay: 0
+  playlist_sync_to_user: all
+  playlist_report: false
+  verify_ssl: true
+  custom_repo:
+  check_nightly: false
+  show_unconfigured: true
+  playlist_exclude_users:
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
+  overlay_artwork_filetype: jpg
+  overlay_artwork_quality:
+  show_unfiltered: false
+webhooks:                                       # Can be individually specified per library as well
+  error: notifiarr
+  version: notifiarr
+  run_start: notifiarr
+  run_end: notifiarr
+  changes: notifiarr
+  delete:
+plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
+  url: http://192.168.20.6:32400
+  token: redacted
+  timeout: 60
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+  db_cache:
+  verify_ssl:
+tmdb:                                           # REQUIRED for the script to run
+  apikey: redacted
+  language: en
+  cache_expiration: 60
+  region:
+tautulli:                                       # Can be individually specified per library as well
+  url: http://tautulli:8181
+  apikey: redacted
+#omdb:
+  #apikey: ########
+  #cache_expiration: 60
+mdblist:
+  apikey: redacted
+  cache_expiration: 60
+notifiarr:
+  apikey: redacted
+#anidb:                                          # Not required for AniDB builders unless you want mature content
+  #username: ######
+  #password: ######
+  #language: en
+  #client:
+radarr:                                           # Can be individually specified per library as well
+  url: http://radarr-4k:7878
+  token: redacted
+  root_folder_path: /data/movies/media/2160p
+  monitor: false
+  availability: released
+  quality_profile: SQP-5 Bluray|WebDL-2160p
+  tag:
+  search: false
+  radarr_path:
+  plex_path:
+  add_existing: false
+  add_missing: false
+  upgrade_existing: false
+  ignore_cache: false
+  monitor_existing: false
+sonarr:                                           # Can be individually specified per library as well
+  url: http://sonarr:8989
+  token: redacted
+  root_folder_path: /data/tv/media
+  monitor: none
+  quality_profile: WebDL|Bluray-1080p
+  language_profile: English
+  series_type: standard
+  season_folder: true
+  tag:
+  search: false
+  cutoff_search: false
+  add_existing: false
+  sonarr_path:
+  plex_path:
+  add_missing: false
+  upgrade_existing: false
+  ignore_cache: false
+  monitor_existing: false
+trakt:
+  client_id: redacted
+  client_secret: redacted
+  pin:
+  authorization:
+    # everything below is autofilled by the script
+    access_token: redacted
+    token_type: Bearer
+    expires_in: 7889237
+    refresh_token: redacted
+    scope: public
+    created_at: 1722060020
+#mal:
+  #client_id: ################################
+  #client_secret: ################################################################
+  #authorization:
+    # everything below is autofilled by the script
+    #access_token:
+    #token_type:
+    #expires_in:
+    #refresh_token:
