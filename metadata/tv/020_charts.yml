@@ -1,5 +1,5 @@
 external_templates:
-  pmm: templates
+  default: templates
   template_variables:
     collection_section: "01"
 
@@ -16,7 +16,7 @@ templates:
 collections:
   Popular:
     mdblist_list:
-      url: https://mdblist.com/lists/davo1624/top-watched-of-the-week-60-approval
+      url: https://mdblist.com/lists/davo1624/trak-most-watched-week-gbklasr6d8
     variables:
       key: popular
     template:

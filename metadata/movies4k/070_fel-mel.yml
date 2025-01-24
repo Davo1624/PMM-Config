@@ -1,0 +1,20 @@
+external_templates:
+  default: templates
+
+collections:
+  "FEL Showcase":
+    libraries: Movies-4k
+    radarr_taglist: fel
+    summary: "Collection of movies with a Full Enhancement Layer ('fel' tag in radarr)."
+    collection_mode: show_items  # To always display items
+    collection_order: release    # Order by release date
+    sync_mode: sync              # Sync items; remove those not matching the buildery
+    sort_title: "!200_0fel"
+  "MEL Showcase":
+    libraries: Movies-4k
+    radarr_taglist: mel
+    summary: "Collection of movies with a Minimum Enhancement Layer ('mel' tag in radarr)."
+    collection_mode: show_items  # To always display items
+    collection_order: release    # Order by release date
+    sync_mode: sync              # Sync items; remove those not matching the builder
+    sort_title: "!200_0mel"

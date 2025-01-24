@@ -1,7 +1,7 @@
 external_templates:
-  pmm: templates
+  default: templates
   template_variables:
-    collection_section: 999
+    collection_section: 200
 
 templates:
   Collections:
@@ -13,6 +13,7 @@ templates:
       - tmdb
       - imdb
       - mdb
+      - trakt
       - order
       - radarr
     tmdb_collection_details: <<collection>>
@@ -22,12 +23,14 @@ templates:
     tmdb_list: <<tmdb>>
     imdb_list: <<imdb>>
     mdblist_list: <<mdb>>
+    trakt_list: <<trakt>>
     sync_mode: sync
     collection_order: <<order>>
     url_poster: <<poster>>
-    sort_title: <<collection_name>>
+    sort_title: "!200_<<collection_name>>"
     radarr_add_missing: <<radarr>>
     item_radarr_tag: pmm_<<collection_name>>
+    ignore_blank_results: true
 
 collections:
 
@@ -38,70 +41,44 @@ collections:
         key_name: Personal
         translation_key: separator
 
-#Middle Earth
-  "The Hobbit":
-    template: {name: Collections, collection: 121938, poster: https://theposterdb.com/api/assets/113985 }
+#Action Collection
+  "Action Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-action-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    filters:
+      title.not:
+        - "T2: Reprogramming The Terminator"
+        - "The Matrix Resurrections"
 
-  "The Lord of the Rings":
-    template: {name: Collections, collection: 119, poster: https://theposterdb.com/api/assets/113964 }
+#Animated Collection
+  "Animation Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-animated-films-j876kgx0sd, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best animated movies of all time", poster: https://theposterdb.com/api/assets/180231}
 
-  "Middle Earth":
-    template: {name: Collections, tmdb: 8195671, poster: https://theposterdb.com/api/assets/115066 }
+#Audio-Showcase
+  "Audio Showcase":
+    template: {name: Collections, radarr: true, trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Get ready for cinematic adventures where the power of sound takes center stage, transporting you on a captivating sonic journey like no other!", poster: https://i.ibb.co/GspS4xg/poster.png}
 
-#Wizarding World
-  "Fantastic Beasts":
-    template: {name: Collections, collection: 435259, poster: https://theposterdb.com/api/assets/169 }
+#Comedy Collection
+  "Comedy Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/14397, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes essential comedy movies.", poster: https://theposterdb.com/api/assets/204661}
 
-  "Harry Potter":
-    template: {name: Collections, collection: 1241, poster: https://theposterdb.com/api/assets/545 }
+#Disney Animation
+  "Disney Animation":
+    template: {name: Collections, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
 
-#DC
-  "Aquaman":
-    template: {name: Collections, collection: 573693, poster: https://theposterdb.com/api/assets/162375 }
+#Fantasy Collection
+  "Fantasy Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/hdlists/best-fantasy-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the greatest movies in the fantasy genre.", poster: https://theposterdb.com/api/assets/51476}
 
-  "Batman":
-    template: {name: Collections, collection: "263, 948485, 120794", poster: https://theposterdb.com/api/assets/79435 }
+#Horror Collection
+  "Horror Collection":
+    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-200-best-horror-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best horror movies of all time.", poster: https://theposterdb.com/api/assets/246835}
+    filters:
+      title.not:
+        - "Drácula"
 
-  "Red":
-    template: {name: Collections, collection: 163902, poster: https://theposterdb.com/api/assets/162399 }
-
-  "Suicide Squad":
-    template: {name: Collections, collection: 531242, poster: https://theposterdb.com/api/assets/174225 }
-
-  "Superman":
-    template: {name: Collections, radarr: true, collection: 8537, poster: https://theposterdb.com/api/assets/72726 }
-
-#  "Swamp Thing":
-#    template: {name: Collections, radarr: true, collection: 87228, poster: https://theposterdb.com/api/assets/162403 }
-
-  "Watchmen":
-    template: {name: Collections, tmdb: 8196349, poster: https://theposterdb.com/api/assets/162408 }
-
-  "Wonder Woman":
-    template: {name: Collections, collection: 468552, poster: https://theposterdb.com/api/assets/94683 }
-
-#James Bond
-  "James Bond":
-    template: {name: Collections, collection: 645, tmdb_summary: 645, poster: https://theposterdb.com/api/assets/24922}
-
-#Mission Impossible
-  "Mission: Impossible":
-    template: {name: Collections, collection: "87359", tmdb_summary: 87359, poster: https://theposterdb.com/api/assets/12118}
-
-#MCU
-  "Marvel Cinematic Universe":
-    template: {name: Collections, imdb: https://www.imdb.com/list/ls031310794, poster: https://theposterdb.com/api/assets/879}
-
-#Star Wars
-  "Star Wars":
-    template: {name: Collections, radarr: true, collection: 10, tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
-
-  "Star Wars Despecialized Collection":
-    template: {name: Collections, movie: "11, 1891, 1892", summary: "Harmy's Despecialized Edition is a fan-created film preservation of the original Star Wars trilogy films: Star Wars (1977), The Empire Strikes Back (1980) and Return of the Jedi (1983)", poster: https://theposterdb.com/api/assets/28780}
-
-#Studio Ghibli
-  "Studio Ghibli":
-    template: {name: Collections, radarr: true, tmdb: 4309, poster: https://theposterdb.com/api/assets/24655}
+#Kids Collection
+  "Kids Collection":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls057839433/,  summary: "Collection of the top 100 kids movies.", poster: https://theposterdb.com/api/assets/102656}
 
 #Kung Fu
   "Kung-Fu Collection":
@@ -110,117 +87,148 @@ collections:
     - https://www.imdb.com/list/ls075582795/
     - https://www.imdb.com/list/ls028404218/
 
-#Pirates of the Caribbean
-  "Pirates of the Caribbean":
-    template: {name: Collections, collection: 295, poster: https://theposterdb.com/api/assets/12792}
+#MCU
+  "Marvel Cinematic Universe":
+    template: {name: Collections, imdb: https://www.imdb.com/list/ls031310794, poster: https://theposterdb.com/api/assets/879}
 
-#Blade Runner Collection
-  "Blade Runner":
-    template: {name: Collections, collection: 422837, poster: https://theposterdb.com/api/assets/28342}
-
-#Shrek Collection
-  "Shrek":
-    template: {name: Collections, collection: 2150, tmdb_summary: 2150, poster: https://theposterdb.com/api/assets/6997}
-
-#Kingsman Collection
-  "Kingsman":
-    template: {name: Collections, collection: 391860, tmdb_summary: 391860, poster: https://theposterdb.com/api/assets/6634}
-
-#Back to the Future Collection
-  "Back to the Future":
-    template: {name: Collections, collection: 264, tmbd_summary: 264, poster: https://theposterdb.com/api/assets/87588}
-
-#Despicable Me
-  "Despicable Me":
-    template: {name: Collections, collection: 86066, tmdb_summary: 86066, poster: https://theposterdb.com/api/assets/138807}
-
-#Indiana Jones
-  "Indiana Jones":
-    template: {name: Collections, collection: 84, tmdb_summary: 84, poster: https://theposterdb.com/api/assets/21883}
-
-#Zombies
-  "Zombie Collection":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, summary: "Fast or slow, zombies always win in the end", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
-
-#Bourne Collection
-  "Bourne Collection":
-    template: {name: Collections, collection: 31562, tmdb_summary: 31562, poster: https://theposterdb.com/api/assets/5420}
-
-#John Wick Collection
-  "John Wick":
-    template: {name: Collections, collection: 404609, tmdb_summary: 404609, poster: https://theposterdb.com/api/assets/17550}
-
-#Jurassic Park
-  "Jurassic Park":
-    template: {name: Collections, collection: 328, tmdb_summary: 328, poster: https://theposterdb.com/api/assets/27563}
-
-#Disney Animation
-  "Disney Animation":
-    template: {name: Collections, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
+#Pokemon
+  "Pokemon":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
 
 #Sci-Fi Collection
-  "Essential Sci-Fi Collection":
+  "Sci-Fi Collection":
     template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-150-greatest-sci-fi-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
         - "The Matrix Resurrections"
 
-#Alien Franchise
-  "Alien Anthology":
-    template: {name: Collections, collection: "8091, 135416", summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/171305}
+#Star Wars Despecialized
+  "Star Wars Despecialized Collection":
+    template: {name: Collections, movie: "11, 1891, 1892", summary: "Harmy's Despecialized Edition is a fan-created film preservation of the original Star Wars trilogy films: Star Wars (1977), The Empire Strikes Back (1980) and Return of the Jedi (1983)", poster: https://theposterdb.com/api/assets/28780}
 
-#Predator Collection
-  "Predator":
-    template: {name: Collections, radarr: true, collection: 399, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
-
-#Godzilla Collection
-  "Godzilla":
-    template: {name: Collections, radarr: true, collection: "535313, 535790", poster: https://theposterdb.com/api/assets/202765, summary: "A collection featuring Godzilla and the kaiju from the Monsterverse."}
-
-#Fantasy Collection
-  "Essential Fantasy Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/hdlists/best-fantasy-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the greatest movies in the fantasy genre.", poster: https://theposterdb.com/api/assets/51476}
-
-#Kids Collection
-  "Kids Collection":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls057839433/,  summary: "Collection of the top 100 kids movies.", poster: https://theposterdb.com/api/assets/102656}
-
-#Action Collection
-  "Essential Action Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-action-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
-    filters:
-      title.not:
-        - "T2: Reprogramming The Terminator"
-        - "The Matrix Resurrections"
-
-#Comedy Collection
-  "Essential Comedy Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/14397, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes essential comedy movies.", poster: https://theposterdb.com/api/assets/204661}
-
-#Horror Collection
-  "Essential Horror Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-200-best-horror-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best horror movies of all time.", poster: https://theposterdb.com/api/assets/246835}
-    filters:
-      title.not:
-        - "Drácula"
-
-#Star Trek Collection
-  "Star Trek":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls056782571/,  summary: "To boldly go where no man has gone before.", poster: https://theposterdb.com/api/assets/138524}
-
-#Animated Collection
-  "Essential Animation Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-animated-films-j876kgx0sd, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best animated movies of all time", poster: https://theposterdb.com/api/assets/180231}
-
-#Fast & Furious
-  "Fast & Furious":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls096794432/, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/110853}
-
-#Pokemon
-  "Pokemon":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
+#Studio Ghibli
+  "Studio Ghibli":
+    template: {name: Collections, radarr: true, tmdb: 4309, poster: https://theposterdb.com/api/assets/24655}
 
 #Western
-  "Essential Western Collection":
+  "Western Collection":
     template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-100-greatest-western-movies, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best Western movies of all time", poster: https://theposterdb.com/api/assets/51774}
+
+#Zombies
+  "Zombie Collection":
+    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, summary: "Fast or slow, zombies always win in the end", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
+
+#Middle Earth
+#  "The Hobbit":
+#    template: {name: Collections, collection: 121938, poster: https://theposterdb.com/api/assets/113985 }
+
+#  "The Lord of the Rings":
+#    template: {name: Collections, collection: 119, poster: https://theposterdb.com/api/assets/113964 }
+
+#  "Middle Earth":
+#    template: {name: Collections, tmdb: 8195671, poster: https://theposterdb.com/api/assets/115066 }
+
+#Wizarding World
+#  "Fantastic Beasts":
+#    template: {name: Collections, collection: 435259, poster: https://theposterdb.com/api/assets/169 }
+
+#  "Harry Potter":
+#    template: {name: Collections, collection: 1241, poster: https://theposterdb.com/api/assets/545 }
+
+#DC
+#  "Aquaman":
+#    template: {name: Collections, collection: 573693, poster: https://theposterdb.com/api/assets/162375 }
+
+#  "Batman":
+#    template: {name: Collections, collection: "263, 948485, 120794", poster: https://theposterdb.com/api/assets/79435 }
+
+#  "Red":
+#    template: {name: Collections, collection: 163902, poster: https://theposterdb.com/api/assets/162399 }
+
+#  "Suicide Squad":
+#    template: {name: Collections, collection: 531242, poster: https://theposterdb.com/api/assets/174225 }
+
+#  "Superman":
+#    template: {name: Collections, radarr: true, collection: 8537, poster: https://theposterdb.com/api/assets/72726 }
+
+#  "Swamp Thing":
+#    template: {name: Collections, radarr: true, collection: 87228, poster: https://theposterdb.com/api/assets/162403 }
+
+#  "Watchmen":
+#    template: {name: Collections, tmdb: 8196349, poster: https://theposterdb.com/api/assets/162408 }
+
+#  "Wonder Woman":
+#    template: {name: Collections, collection: 468552, poster: https://theposterdb.com/api/assets/94683 }
+
+#James Bond
+#  "James Bond":
+#    template: {name: Collections, collection: 645, tmdb_summary: 645, poster: https://theposterdb.com/api/assets/24922}
+
+#Mission Impossible
+#  "Mission: Impossible":
+#    template: {name: Collections, collection: "87359", tmdb_summary: 87359, poster: https://theposterdb.com/api/assets/12118}
+
+#Star Wars
+#  "Star Wars":
+#    template: {name: Collections, radarr: true, collection: 10, tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
+
+#Pirates of the Caribbean
+#  "Pirates of the Caribbean":
+#    template: {name: Collections, collection: 295, poster: https://theposterdb.com/api/assets/12792}
+
+#Blade Runner Collection
+#  "Blade Runner":
+#    template: {name: Collections, collection: 422837, poster: https://theposterdb.com/api/assets/28342}
+
+#Shrek Collection
+#  "Shrek":
+#    template: {name: Collections, collection: 2150, tmdb_summary: 2150, poster: https://theposterdb.com/api/assets/6997}
+
+#Kingsman Collection
+#  "Kingsman":
+#    template: {name: Collections, collection: 391860, tmdb_summary: 391860, poster: https://theposterdb.com/api/assets/6634}
+
+#Back to the Future Collection
+#  "Back to the Future":
+#    template: {name: Collections, collection: 264, tmbd_summary: 264, poster: https://theposterdb.com/api/assets/87588}
+
+#Despicable Me
+#  "Despicable Me":
+#    template: {name: Collections, collection: 86066, tmdb_summary: 86066, poster: https://theposterdb.com/api/assets/138807}
+
+#Indiana Jones
+#  "Indiana Jones":
+#    template: {name: Collections, collection: 84, tmdb_summary: 84, poster: https://theposterdb.com/api/assets/21883}
+
+#Bourne Collection
+#  "Bourne Collection":
+#    template: {name: Collections, collection: 31562, tmdb_summary: 31562, poster: https://theposterdb.com/api/assets/5420}
+
+#John Wick Collection
+#  "John Wick":
+#    template: {name: Collections, collection: 404609, tmdb_summary: 404609, poster: https://theposterdb.com/api/assets/17550}
+
+#Jurassic Park
+#  "Jurassic Park":
+#    template: {name: Collections, collection: 328, tmdb_summary: 328, poster: https://theposterdb.com/api/assets/27563}
+
+#Alien Franchise
+#  "Alien Anthology":
+#    template: {name: Collections, collection: "8091, 135416", summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/171305}
+
+#Predator Collection
+#  "Predator":
+#    template: {name: Collections, radarr: true, collection: 399, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
+
+#Godzilla Collection
+#  "Godzilla":
+#    template: {name: Collections, radarr: true, collection: "535313, 535790", poster: https://theposterdb.com/api/assets/202765, summary: "A collection featuring Godzilla and the kaiju from the Monsterverse."}
+
+#Star Trek Collection
+#  "Star Trek":
+#    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls056782571/,  summary: "To boldly go where no man has gone before.", poster: https://theposterdb.com/api/assets/138524}
+
+#Fast & Furious
+#  "Fast & Furious":
+#    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls096794432/, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/110853}

@@ -1,0 +1,12 @@
+external_templates:
+  default: templates
+  template_variables:
+    collection_section: "201"
+
+collections:
+  Franchise Collections:
+    template:
+      - name: separator
+        separator: franchise
+        key_name: Franchise
+        translation_key: separator

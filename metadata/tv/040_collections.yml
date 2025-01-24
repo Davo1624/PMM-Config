@@ -1,5 +1,5 @@
 external_templates:
-  pmm: templates
+  default: templates
   template_variables:
     collection_section: 999
 
@@ -19,7 +19,7 @@ templates:
     tmdb_summary: <<tmdb_summary>>
     summary: <<summary>>
     tmdb_list: <<tmdb>>
-    imdb_list: <<imdb>>
+    imdb_search: <<imdb>>
     sync_mode: sync
     collection_order: <<order>>
     builder_level: <<level>>
@@ -37,4 +37,4 @@ collections:
         translation_key: separator
 
   "The Simpsons Top 100 Episodes":
-    template: {name: Collections, order: custom, level: episode, imdb: "https://www.imdb.com/list/ls052422247/?sort=user_rating,desc&st_dt=&mode=detail&page=1", limit: 100, summary: "The top 100 IMDB user rated Simpsons episodes"}
+    template: {name: Collections, order: custom, level: episode, imdb: {type: tv_episode, series: "tt0096697", sort_by: rating.desc, limit: 100}, summary: "The top 100 IMDB user rated Simpsons episodes"}
