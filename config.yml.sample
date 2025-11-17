@@ -5,16 +5,9 @@ libraries:
     - folder: config/metadata/movies/
     - default: seasonal
       template_variables:
-        use_mother: false
-        use_memorial: false
-        use_father: false
-        use_labor: false
-        use_aapi: false
-        use_disabilities: false
-        use_lgbtq: false
-        use_latinx: false
-        use_women: false
-        use_veteran: false
+        use_all: false
+        use_christmas: true
+        use_halloween: true
         emoji: ''
         imdb_search_christmas:
           list.any:
@@ -62,7 +55,7 @@ libraries:
         collection_section: '01'
         radarr_add_missing: true
         radarr_monitor: false
-        radarr_tag: pmm_trakt_watched
+        radarr_tag: pmm-trakt-watched
         use_anticipated: false
         use_collected: false
         use_popular: false
@@ -288,7 +281,7 @@ webhooks:                                       # Can be individually specified 
   delete:
 plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
   url: http://192.168.20.6:32400
-  token: redacted
+  token: (removed)
   timeout: 60
   clean_bundles: false
   empty_trash: false
@@ -296,33 +289,33 @@ plex:                                           # Can be individually specified 
   db_cache:
   verify_ssl:
 tmdb:                                           # REQUIRED for the script to run
-  apikey: redacted
+  apikey: (removed)
   language: en
   cache_expiration: 60
   region:
 tautulli:                                       # Can be individually specified per library as well
   url: http://tautulli:8181
-  apikey: redacted
+  apikey: (removed)
 #omdb:
   #apikey: ########
   #cache_expiration: 60
 mdblist:
-  apikey: redacted
+  apikey: (removed)
   cache_expiration: 60
 notifiarr:
-  apikey: redacted
+  apikey: (removed)
 #anidb:                                          # Not required for AniDB builders unless you want mature content
   #username: ######
   #password: ######
   #language: en
   #client:
 radarr:                                           # Can be individually specified per library as well
-  url: http://radarr:7878
-  token: redacted
-  root_folder_path: /data/movies/media/1080p
+  url: http://radarr-4k:7878
+  token: (removed)
+  root_folder_path: /data/movies/media/2160p
   monitor: false
-  availability: released
-  quality_profile: Remux|Bluray|WebDL-1080p
+  availability: announced
+  quality_profile: SQP-3 (Audio) Remux|WebDL-2160p
   tag:
   search: false
   radarr_path:
@@ -334,7 +327,7 @@ radarr:                                           # Can be individually specifie
   monitor_existing: false
 sonarr:                                           # Can be individually specified per library as well
   url: http://sonarr:8989
-  token: redacted
+  token: (removed)
   root_folder_path: /data/tv/media
   monitor: none
   quality_profile: WebDL|Bluray-1080p
@@ -352,14 +345,15 @@ sonarr:                                           # Can be individually specifie
   ignore_cache: false
   monitor_existing: false
 trakt:
-  client_id: redacted
-  client_secret: redacted
+  client_id: (removed)
+  client_secret: (removed)
   pin:
   authorization:
     # everything below is autofilled by the script
-    access_token: redacted
+    access_token: (removed)
     token_type: Bearer
-    expires_in: 7889237
-    refresh_token: redacted
+    expires_in: 7889238
+    refresh_token: (removed)
     scope: public
-    created_at: 1730026844
+    created_at: 1761822059
+  force_refresh:

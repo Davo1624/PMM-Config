@@ -16,6 +16,7 @@ templates:
       - trakt
       - order
       - radarr
+      - pmm_tag
     tmdb_collection_details: <<collection>>
     tmdb_movie: <<movie>>
     tmdb_summary: <<tmdb_summary>>
@@ -29,7 +30,7 @@ templates:
     url_poster: <<poster>>
     sort_title: "!200_<<collection_name>>"
     radarr_add_missing: <<radarr>>
-    item_radarr_tag: pmm_<<collection_name>>
+    item_radarr_tag: pmm-<<pmm_tag>>
     ignore_blank_results: true
 
 collections:
@@ -43,7 +44,7 @@ collections:
 
 #Action Collection
   "Action Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-action-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    template: {name: Collections, radarr: true, pmm_tag: action-collection, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-action-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest action films of all time.", poster: https://theposterdb.com/api/assets/52017}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
@@ -51,38 +52,49 @@ collections:
 
 #Animated Collection
   "Animation Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-animated-films-j876kgx0sd, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best animated movies of all time", poster: https://theposterdb.com/api/assets/180231}
+    template: {name: Collections, radarr: true, pmm_tag: animation-collection, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-140-greatest-animated-films-j876kgx0sd, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best animated movies of all time", poster: https://theposterdb.com/api/assets/180231}
 
 #Audio-Showcase
-  "Audio Showcase":
-    template: {name: Collections, radarr: true, trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Get ready for cinematic adventures where the power of sound takes center stage, transporting you on a captivating sonic journey like no other!", poster: https://i.ibb.co/GspS4xg/poster.png}
+  "Reference Audio Showcase":
+    template: {name: Collections, radarr: true, pmm_tag: reference-audio-showcase, tmdb: https://www.themoviedb.org/list/8563963-reference-audio-9, order: custom, summary: "Get ready for cinematic adventures where the power of sound takes center stage, transporting you on a captivating sonic journey like no other!", poster: https://i.ibb.co/GspS4xg/poster.png}
+
+#Video-Showcase
+  "Reference Video Showcase":
+    template: {name: Collections, radarr: true, pmm_tag: reference-video-showcase, tmdb: https://www.themoviedb.org/list/8563964-reference-video-9, order: custom, summary: "A showcase of visually stunning films known for their exceptional picture quality and groundbreaking visual effects. From razor-sharp detail to rich, cinematic color, these titles highlight the best in modern filmmaking and mastering. Perfect for testing display performance or simply enjoying cinema at its most visually immersive.", poster: https://i.ibb.co/GfqXJ8kB/reference-video.png}
+
+#Cheesy Action
+  "Cheesy Action Collection":
+    template: {name: Collections, radarr: true, pmm_tag: cheesy-action-collection, summary: "The finest action cheese from the greatest decades ever", poster: https://ih1.redbubble.net/image.5357996080.8011/fposter,small,wall_texture,square_product,600x600.u3.jpg}
+    mdblist_list:
+    - https://mdblist.com/lists/davo1624/external/58880
+    - https://mdblist.com/lists/davo1624/external/58881
 
 #Comedy Collection
   "Comedy Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/external/14397, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes essential comedy movies.", poster: https://theposterdb.com/api/assets/204661}
+    template: {name: Collections, radarr: true, pmm_tag: comedy-collection, mdb: {url: https://mdblist.com/lists/davo1624/external/14397, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes essential comedy movies.", poster: https://theposterdb.com/api/assets/204661}
 
 #Disney Animation
   "Disney Animation":
-    template: {name: Collections, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
+    template: {name: Collections, pmm_tag: disney-animation, tmdb: "7103808, 7103807", summary: "A collection of Disney Animation movies.", poster: https://theposterdb.com/api/assets/68411}
 
 #Fantasy Collection
   "Fantasy Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/hdlists/best-fantasy-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the greatest movies in the fantasy genre.", poster: https://theposterdb.com/api/assets/51476}
+    template: {name: Collections, radarr: true, pmm_tag: fantasy-collection, mdb: {url: https://mdblist.com/lists/hdlists/best-fantasy-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the greatest movies in the fantasy genre.", poster: https://theposterdb.com/api/assets/51476}
 
 #Horror Collection
   "Horror Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-200-best-horror-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best horror movies of all time.", poster: https://theposterdb.com/api/assets/246835}
+    template: {name: Collections, radarr: true, pmm_tag: horror-collection, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-200-best-horror-movies-of-all-time, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best horror movies of all time.", poster: https://theposterdb.com/api/assets/246835}
     filters:
       title.not:
         - "Drácula"
 
 #Kids Collection
   "Kids Collection":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls057839433/,  summary: "Collection of the top 100 kids movies.", poster: https://theposterdb.com/api/assets/102656}
+    template: {name: Collections, radarr: true, pmm_tag: kids-collection, imdb: https://www.imdb.com/list/ls057839433/,  summary: "Collection of the top 100 kids movies.", poster: https://theposterdb.com/api/assets/102656}
 
 #Kung Fu
   "Kung-Fu Collection":
-    template: {name: Collections, radarr: true, summary: "Classic Wushu Wuxia films showcasing martial artists", poster: https://theposterdb.com/api/assets/70718}
+    template: {name: Collections, radarr: true, pmm_tag: kung-fu-collection, summary: "Classic Wushu Wuxia films showcasing martial artists", poster: https://theposterdb.com/api/assets/70718}
     imdb_list:
     - https://www.imdb.com/list/ls075582795/
     - https://www.imdb.com/list/ls028404218/
@@ -93,11 +105,11 @@ collections:
 
 #Pokemon
   "Pokemon":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
+    template: {name: Collections, radarr: true, pmm_tag: pokemon, imdb: https://www.imdb.com/list/ls062687939/, summary: "Ash Ketchum, a young boy from Pallet Town, comes of age and gains the right to train Pokémon.", poster: https://theposterdb.com/api/assets/77211}
 
 #Sci-Fi Collection
   "Sci-Fi Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-150-greatest-sci-fi-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+    template: {name: Collections, radarr: true, pmm_tag: sci-fi-collection, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-150-greatest-sci-fi-films, sort_by: rtomatoes.desc}, order: custom, summary: "Rotten Tomatoes greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
@@ -109,15 +121,15 @@ collections:
 
 #Studio Ghibli
   "Studio Ghibli":
-    template: {name: Collections, radarr: true, tmdb: 4309, poster: https://theposterdb.com/api/assets/24655}
+    template: {name: Collections, radarr: true, pmm_tag: studio-ghibli, tmdb: 4309, poster: https://theposterdb.com/api/assets/24655}
 
 #Western
   "Western Collection":
-    template: {name: Collections, radarr: true, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-100-greatest-western-movies, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best Western movies of all time", poster: https://theposterdb.com/api/assets/51774}
+    template: {name: Collections, radarr: true, pmm_tag: western-collection, mdb: {url: https://mdblist.com/lists/davo1624/rotten-tomatoes-100-greatest-western-movies, sort_by: rtomatoes.desc}, order: custom, summary: "Collection of the best Western movies of all time", poster: https://theposterdb.com/api/assets/51774}
 
 #Zombies
   "Zombie Collection":
-    template: {name: Collections, radarr: true, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, summary: "Fast or slow, zombies always win in the end", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
+    template: {name: Collections, radarr: true, pmm_tag: zombie-collection, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, summary: "Fast or slow, zombies always win in the end", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
 
 #Middle Earth
 #  "The Hobbit":
